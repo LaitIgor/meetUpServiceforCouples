@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.6 20">
+  <defs>
+    <linearGradient id="SmallTwo_1_" gradientUnits="userSpaceOnUse" x1="-5.1486" y1="20.73" x2="3.1959" y2="12.1329" gradientTransform="matrix(1 1.998856e-04 -1.998856e-04 1 6.1881 -2.0891)">
+      <stop offset="1.364087e-03" style="stop-color: #FF7F45"/>
+      <stop offset="1" style="stop-color: #FFAA45"/>
+    </linearGradient>
+    <linearGradient id="Big_1_" gradientUnits="userSpaceOnUse" x1="1.6804" y1="20.6287" x2="13.5713" y2="8.3779" gradientTransform="matrix(1 1.998856e-04 -1.998856e-04 1 6.1881 -2.0891)">
+      <stop offset="0.1452" style="stop-color: #4FA39A" />
+      <stop offset="1" style="stop-color: #4FB59A" />
+    </linearGradient>
+    <linearGradient id="SmallOne_1_" gradientUnits="userSpaceOnUse" x1="-5.1486" y1="20.73" x2="3.1959" y2="12.1329" gradientTransform="matrix(1 1.998856e-04 -1.998856e-04 1 6.1881 -2.0891)">
+      <stop offset="1.364087e-03" style="stop-color: #FF7F45"/>
+      <stop offset="1" style="stop-color: #FFAA45 "/>
+    </linearGradient>
+  </defs>
+  <path id="SmallTwo" fill="url(#SmallTwo_1_)" style="transform: translateY(0.5%)" d="M1.4,6.4c-0.2,0-0.3,0.1-0.3,0.3l0,11.8c0,0.2,0.1,0.3,0.3,0.3l10.9,0 c0.2,0,0.3-0.1,0.3-0.3C12.6,11.9,7.6,6.4,1.4,6.4z"/>
+  <path id="Big" fill="url(#Big_1_)" d="M8.4,1.1C8.2,1.1,8,1.3,8,1.6l0,16.9c0,0.2,0.2,0.4,0.4,0.4l15.5,0c0.2,0,0.4-0.2,0.4-0.4 C24.3,8.9,17.2,1.1,8.4,1.1z"/>
+  <path id="SmallOne" opacity="0.7" fill="url(#SmallOne_1_)" style="transform: translateY(0.5%)" d="M1.4,6.4c-0.2,0-0.3,0.1-0.3,0.3l0,11.8c0,0.2,0.1,0.3,0.3,0.3 l10.9,0c0.2,0,0.3-0.1,0.3-0.3C12.6,11.9,7.6,6.4,1.4,6.4z"/>
+</svg>

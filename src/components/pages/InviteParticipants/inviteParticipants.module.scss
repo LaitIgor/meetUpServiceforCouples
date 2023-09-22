@@ -1,0 +1,114 @@
+$border: 2px solid black;
+
+.header-text {
+    margin: 17px 0 42px 0;
+}
+
+.invite {
+    &__wrapper {
+        position: relative;
+        padding: 35px 50px 40px;
+        border: $border;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    &__template-block {
+        margin-inline: auto;
+        max-width: 75%;
+        text-align: center;
+
+        &:first-child {
+            margin-bottom: 70px;
+        }
+
+        // button {
+        //     margin-bottom: 25px;
+        // }
+
+    }
+
+    // chips wrapper
+    &__template-selected {
+        text-align: left;
+        margin-bottom: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    &__template-content {
+        padding: 1rem;
+        // line-height: 8px;
+        width: 100%;
+        border: $border;
+        border-radius: 5px;
+        resize: none;
+    }
+
+    &__template-tag {
+        background-color: #a69a9a;
+        border-radius: 10px;
+        padding: 3px 5px;
+
+        &:not(last-child) {
+            margin-right: 5px;
+        }
+    }
+
+    // input field
+    &__template-tagInputField {
+        padding: 1rem;
+        line-height: 8px;
+        width: 100%;
+        border: $border;
+        border-radius: 5px;
+        resize: none;
+    }
+
+    &__template-remove {
+        width: 25px;
+        padding: 0;
+        align-self: center;
+        background-color: transparent;
+
+        &:hover,
+        &:focus {
+            border: none;
+        }
+    }
+
+
+}
+
+.template-header {
+    text-align: center;
+}
+
+.template-btn {
+    &__wrapper {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+
+        button {
+            margin-bottom: 5px;
+            min-width: 130px;
+            display: block;
+            padding: 10px 10px;
+            line-height: 1;
+        }
+    }
+}
+
+.sendBtn {
+    margin-top: 35px;
+}
+
+.templateSelect {
+    width: 140px;
+    padding: 6px; 
+    // background-color: transparent; 
+    border: 2px solid black; 
+    border-radius: 5px;
+}

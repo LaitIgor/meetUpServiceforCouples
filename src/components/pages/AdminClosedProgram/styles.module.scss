@@ -1,0 +1,60 @@
+.program {
+    &-container{
+    padding: 20px 40px;
+    text-align: center;
+
+    h1 {
+        margin: 0;
+        margin-bottom: 40px;
+    }
+    }
+    &-content {
+        padding: 30px;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+}
+
+.content {
+    &-top {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        &__block {
+            text-align: center;
+            min-width: 25%;
+            padding: 20px 30px;
+            border: 2px solid black;
+            border-radius: 5px;
+
+            button {
+                display: block;
+                margin-inline: auto;
+                background-color: #fff;
+                color: #000;
+                border: 1px solid black;
+                margin-bottom: 5px;
+            }
+        }
+        
+
+        span {
+            display: block;
+        }
+    }
+
+    &__activity {
+        padding: 20px;
+        text-align: left;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+}
+
+.block {
+    &__header {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,12 @@
+1. Generic btns
+2. Proper route names (especially signup/login ones)
+3. Rename single match router name to "single-matching/:id"
+3. Matched percent separate component
+4. Separate folder for popups
+5. Unique program/invite backdrop loader
+6. In strict mode batch match doesnt work
+7. Remove matchMakingDetailsPopup from App.js
+8. Create universal Loader with backdrop.
+
+GLOBAL changes
+1. IF REDUX IS NOT implemented outsource context from main.js to local components that use it

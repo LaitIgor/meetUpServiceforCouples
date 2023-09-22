@@ -1,0 +1,186 @@
+
+.suggestion {
+    margin-bottom: 30px;
+    width: auto;
+    &.approved {
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            left: -20%;
+            top: 40%;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background: url('../../assets/checked.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            mix-blend-mode: hard-light;
+        }
+    }
+}
+.matched-pair {
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+
+    &__wrapper {
+        // height: 445px;
+        // overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+    }
+
+    &__profile-pic {
+        max-width: 65px;
+        margin-right: 35px;
+
+        p {
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+
+
+    &__img {
+        width: 63px;
+        height: 63px;  
+    }
+
+    a {
+        margin-right: 20px;
+        text-align: center;
+    }
+}
+
+.matched-percent__wrapper {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    & > * {
+        display: block;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+
+    }
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    color: black;
+    border: none;
+    transition: background-color 0.25s ease;
+
+    &:hover {
+        background-color: #e4f2f1;
+    }
+
+}
+
+.collapse {
+    border: 2px solid #cccccc;
+    border-top: none;
+}
+
+.suggested {
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        &:first-child {
+            margin-top: 10px;
+        }
+
+        .matched-pair {
+            &__profile-pic {
+                max-width: 65px;
+            }
+            &__img {
+                width: 35px;
+                height: 35px;  
+            }
+        }
+    }
+}
+
+.takenMentor {
+
+    .matched-pair__mentor {
+        position: relative;
+        &:before {
+            content: 'TAKEN';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -100%;
+            color: red;
+
+        }
+    }
+}
+
+.list__header-wrapper {
+    position: relative;
+
+    & .counter {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    & .approve-btn__wrapper {
+        position: absolute;
+        top: 0;
+        right: -15%;
+
+        button:first-child {
+            margin-right: 10px;
+        }
+
+        .allApproved {
+            color: white;
+            background-color: green !important;
+            pointer-events: visible;
+            cursor: not-allowed;
+            &:hover {
+                color: white;
+                background-color: green !important;
+            }
+        }
+    }
+}
+
+.searchMentorSelect {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #000;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .suggested {
+    // border-top: 2px solid #ccc;
+    // margin-top: 2rem;
+    width: 70%;
+    padding-top: 1rem;
+}

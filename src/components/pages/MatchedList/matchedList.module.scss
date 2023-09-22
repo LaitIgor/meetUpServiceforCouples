@@ -1,0 +1,131 @@
+$border: 2px solid black;
+
+.user-name {
+    text-align: center;
+}
+
+.select-block {
+    label {
+       font-weight: bold; 
+    }
+    select {
+        display: block;
+    }
+}
+
+.matchmaking {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    &__content {
+        border: $border;
+        border-radius: 5px;
+        padding: 11px;
+    }
+}
+
+.content {
+    &__header {
+        margin: 0;
+        margin-bottom: 40px;
+    }
+}
+
+.selected-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    margin-inline: auto;
+    margin-bottom: 40px;
+
+    &:not(last-child) {
+        margin-bottom: 45px;
+    }
+
+    &__img {
+        width: 63px;
+        height: 63px;
+        margin-right: 20px;
+    }
+
+    &__text {
+        border: $border;
+        border-radius: 5px;
+        padding: 15px;
+    }
+}
+
+.suggestions {
+    max-height: 500px;
+    overflow: scroll;
+    margin-bottom: 35px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.result {
+    width: 75%;
+    margin-right: 2rem;
+    // margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__profile-wrapper {
+        max-width: 65px;
+        margin-right: 35px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__img {
+        width: 63px;
+        height: 63px;
+        
+    }
+
+    &__text {
+        max-width: 640px;
+        width: 100%;
+        border: $border;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+    a {
+        margin-right: 20px;
+        text-align: center;
+    }
+}
+
+.matched-percent__wrapper {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    & > * {
+        display: block;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+
+    }
+}
+
+
+

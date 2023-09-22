@@ -1,0 +1,37 @@
+$border: 2px solid black;
+
+.header-text {
+    text-align: center;
+}
+
+label {
+    display: block;
+    width: auto;
+    font-weight: bold; 
+}
+
+.btnWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.batchBtn {
+    display: block;
+    width: max-content;
+    margin-inline: auto;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:first-of-type {
+        margin-bottom: 10px;
+    }
+}
+
+.matchmaking {
+    &__content {
+        border: $border;
+        border-radius: 5px;
+        padding: 11px;
+    }
+}

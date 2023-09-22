@@ -1,0 +1,50 @@
+.template {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__name {
+        margin-bottom: 35px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    &-text {
+        &__wrapper {
+            margin-bottom: 35px;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: center;
+
+            textarea {
+                width: 350px;
+                min-width: auto;
+                padding: 5px 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                resize: none;
+            }
+        }
+    }
+
+
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    color: black;
+    border: none;
+    transition: background-color 0.25s ease;
+
+    &:hover {
+        background-color: #e4f2f1;
+    }
+
+}

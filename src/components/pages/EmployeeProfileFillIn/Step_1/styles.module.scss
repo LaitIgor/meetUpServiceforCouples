@@ -1,0 +1,30 @@
+.form-group__wrapper {
+    width: 100%;
+    max-width: 557px;
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input {
+        padding: 10px 15px;
+        width: 100%;
+        &::placeholder {
+            opacity: 0.5;
+        }
+    }
+}
+
+.input-wrapper {
+    max-width: 246px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.next {
+    margin-top: 20px;
+    background-color: white;
+    border: 2px solid rgb(4, 88, 4)
+}

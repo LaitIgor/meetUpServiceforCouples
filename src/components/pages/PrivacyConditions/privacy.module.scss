@@ -1,0 +1,66 @@
+.privacy {
+    &__container {
+        padding: 80px 9vw;
+        text-align-last: left;
+        font-family: Lato, Arial, Helvetica, Geneva, sans-serif !important;
+    }
+
+    &__header {
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 3.25rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: left;
+    }
+
+    &__subtitle {
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 1.125rem;
+        line-height: 1.75;
+        text-align: left;
+        
+    }
+
+    &__terms-wrapper {
+        margin-top: 4rem;
+        text-align: left;
+    }
+}
+
+.terms-wrapper {
+    &__header {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 2.625rem;
+        line-height: 1.2;
+        font-weight: 700;
+        
+    }
+
+    &__link {
+        font-size: 1.125rem;
+        font-weight: 300;
+        line-height: 1.75;
+        color: #fe9236;
+        text-decoration: underline;
+        text-align: left;
+    }
+}
+
+// @media screen and (max-width: 768px) {
+//     .privacy {
+//         &__container {
+//             padding: 50px 9vw;
+//         }
+//     }
+// }
+
+@media screen and (max-width: 768px) {
+    .privacy {
+        &__container {
+            padding: 50px 9vw;
+        }
+    }
+}

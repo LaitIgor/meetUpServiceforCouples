@@ -1,0 +1,34 @@
+.form-group__wrapper {
+    width: 100%;
+    max-width: 557px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input {
+        padding: 10px 15px;
+        width: 100%;
+        &::placeholder {
+            opacity: 0.5;
+        }
+    }
+}
+
+.input-wrapper {
+    max-width: 246px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.header-logo {
+    width: 180px;
+    display: flex;
+    // text-align: left;
+    color: black;
+
+    img {
+        width: 100%;
+    }
+}
