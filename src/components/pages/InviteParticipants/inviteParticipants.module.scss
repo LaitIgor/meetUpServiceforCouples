@@ -64,6 +64,9 @@ $border: 2px solid black;
         border: $border;
         border-radius: 5px;
         resize: none;
+        &--hide {
+            display: none;
+        }
     }
 
     &__template-remove {

@@ -92,16 +92,25 @@ function App() {
 
     getEntities('PROGRAMS')
         .then((programs) => {
+          if (!programs) return;
           const sortedPrograms = programs.sort((program1, program2) => {
             return program1.programName.toLowerCase() > program2.programName.toLowerCase();
           });
           console.log(sortedPrograms, 'sortedPrograms');
             setExistingPrograms({programs: sortedPrograms})
         })
+        .catch(err => {
+          console.warn('There was a probleb while fetching programs: ', err)
+        })
 
     getEntities('EMAIL_TEMPLATES')
         .then((emailTemplates) => {
+          console.log('emailTemplates', emailTemplates);
+          if (!emailTemplates) return
             setEmailTemplates((prevTemplates) => ([...prevTemplates, ...emailTemplates]))
+    })
+    .catch(err => {
+      console.warn('There was a probleb while fetching email templates: ', err)
     })
 
 }, [])
@@ -111,6 +120,7 @@ function App() {
     <>
        {displayHeaderAndFooter && <HeaderEmployee curUser={user} />}
       {/* <HeaderCompany /> */}
+      {/* TODO: remove */}
       {showMatchedDetailsModal && <MatchMakingDetailsPopup open={!!showMatchedDetailsModal} onClose={setShowModal} />}
       <main className={`container ${displayHeaderAndFooter ? '' : 'no-header'}`}>
         <Routes>
@@ -128,9 +138,11 @@ function App() {
           <Route path='/admin-closed-program/:programId' element={<AdminClosedProgram />} />
           <Route path='/prog-signup-userinfo' element={<ProgramSignupUserInfo />} />
           <Route path='/invite-participants' element={<InviteParticipants />} />
-          <Route path='/matchmaking' element={<Matchmaking />} />
-          <Route path='/matchmaking/single-matching' element={<SingleMatching backBtn={true}/>} />
-          <Route path='/matchmaking/batch-matching' element={<BatchMatching />} />
+          <Route path='/matchmaking' >
+            <Route index element={<Matchmaking />}/>
+            <Route path='single-matching' element={<SingleMatching backBtn={true}/>} />
+            <Route path='batch-matching' element={<BatchMatching />} />
+          </Route>
           <Route path='/matched-list/:userId' element={<MatchedList />} />
           <Route path='/create-programs' element={<CreatePrograms />} />
           {/* <Route path='/create-template' element={<CreateTemplate />} /> */}

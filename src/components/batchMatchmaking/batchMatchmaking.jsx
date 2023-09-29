@@ -4,7 +4,7 @@ import {
     useEffect, 
     useRef
 } from 'react';
-import {Navigate} from 'react-router-dom';
+import {Navigate, redirect, useNavigate} from 'react-router-dom';
 import {Box, Collapse, Button, Alert, Snackbar, Autocomplete, TextField} from '@mui/material';
 
 import userIco from '../../assets/user-ico.png';
@@ -113,7 +113,10 @@ const BatchMatchmaking = ({onClose, selectedProgram}) => {
     // For filtering out mentors in suggested list which already have been approved
     const listOfApprovedMentors = useRef([]);
 
+    const navigate = useNavigate();
     if (!selectedForMatching) {
+        console.warn('SHOULD REDIRECT');
+        return redirect('/matchmaking');
         return <Navigate to='/matchmaking' replace/>
     }
 

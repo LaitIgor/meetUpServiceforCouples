@@ -21,11 +21,8 @@ const MatchedList = () => {
     const {setShowModal} = useContext(MatchDetailsContext);
     const [matchesList, setMatchesList] = useState([])
     const {userId} = useParams();
-    const suggestedMatches = [];
 
     const selectedUser = mentees.find((user) => userId === user.id.toString());
-    // console.log(selectedUser, 'selectedUser');
-    // selectedUser.suggestedMatches.sort((user1, user2) => user2.matchingPercent - user1.matchingPercent)
 
     useEffect(() => {
         singleMatchmaking(selectedUser);

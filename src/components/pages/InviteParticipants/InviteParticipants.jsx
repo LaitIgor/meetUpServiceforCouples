@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { addEntity } from '../../../firebase/firebase';
@@ -11,6 +11,7 @@ import { InviteParticipantsTemplateProvider, EmailsTemplates } from '../../../Pr
 
 import { Button, Backdrop, CircularProgress, Tooltip } from '@mui/material';
 import { WithContext as ReactTags } from 'react-tag-input';
+import { isEmail } from '../../../Utils/patternsCheck';
 
 import styles from './inviteParticipants.module';
 
@@ -23,11 +24,12 @@ const Keys = {
 };
 
 const InviteParticipants = () => {
-    const [followTextValue, setFollowTextValue] = useState(explainingTextPlaceholder);
+    const [followTextValue, setFollowTextValue] = useState();
 
     const {existingPrograms, setExistingPrograms} = useContext(ExistingProgramsContext);
     const {emailTemplates, setEmailTemplates} = useContext(EmailsTemplates);
     const [showLoader, setShowLoader] = useState(false);
+    const reactTagInput = useRef(null);
     
     // Boolean for template creation modality
     const [creteTemplateOpen, setCreateTemplateOpen] = useState(false);
@@ -70,8 +72,6 @@ const InviteParticipants = () => {
     useEffect(() => {
         if (selectedTemplateOption.templateText) {
         setFollowTextValue(selectedTemplateOption.templateText)
-        } else {
-            setFollowTextValue(explainingTextPlaceholder)
         }
 
     }, [selectedTemplateOption])
@@ -126,17 +126,50 @@ const InviteParticipants = () => {
 
     }
 
-
-
     const isSelectProgramDisabled = existingPrograms.programs.length === 0;
 
-  
+    const handlePaste = (event) => {
+        event.preventDefault();
+        const pastedText = event.clipboardData.getData('text/plain');
+        const emails = pastedText.split(',');
+    
+        emails.forEach((email) => {
+            console.warn(email, 'email');
+          if (isEmail(email.trim())) {
+            const newTag = {
+                id: email,
+                text: email,
+            };
+            // Use the ReactTags API to add a chip
+            setTags((prevTags) => [...prevTags, newTag]);
+          }
+        });
+      };
+
+      function tagInputHandler(e) {
+        console.log(e, 'eeee');
+        const value = e.target.value;
+        if (value.includes(',')) {
+            const email = value.slice(0, -1);
+            if (isEmail(email)) {
+                const newTag = {
+                    id: email,
+                    text: email,
+                };
+            
+                setTags((prevTags) => [...prevTags, newTag]);
+            } else {
+                console.log('It wasn`t an email, sry');
+            }
+            reactTagInput.current.value = '';
+        }
+      }
 
     return (
         <>
         {creteTemplateOpen && <CreateTemplatePopup open={creteTemplateOpen} onClose={closeCreateTemplate} setEmailTemplates={addTemplate} />}
             <h1 className={styles['header-text']}>Invite Participants</h1>
-            
+
             <div className={styles['invite__wrapper']}>
                 <h3 style={{margin: 0, padding: 0}}>Select Program</h3>
                 <select 
@@ -160,21 +193,30 @@ const InviteParticipants = () => {
                             // chip
                             tag: styles['invite__template-tag'],
                             remove: styles['invite__template-remove'],
-                            tagInputField: styles['invite__template-tagInputField'],
+                            tagInputField: styles['invite__template-tagInputField--hide'],
 
                         }}
-                        allowAdditionFromPaste={true}
+                        id='react-tags'
                         tags={tags}
-                        delimiters={[Keys.COMMA]}
                         handleDelete={handleDelete}
                         handleAddition={handleAddition}
-                        // handleDrag={handleDrag}
-                        handleTagClick={handleTagClick}
-                        inputFieldPosition="bottom"
-                        maxLength={35}
-                        // autocomplete
+
                         placeholder="Textbox for admin to list employee emails with comma as delimiter"
-                        autofocus={false}
+                        inputFieldPosition="bottom"
+                        allowDragDrop={false}
+                        // allowAdditionFromPaste={true}
+                        // delimiters={[Keys.COMMA]}
+                        // handleTagClick={handleTagClick}
+                        // maxLength={35}
+                        // autofocus={false}
+                        />
+                        <input
+                        type="text"
+                        onPaste={handlePaste} // Listen for paste event on the input field
+                        onChange={tagInputHandler}
+                        ref={reactTagInput}
+                        className={styles['invite__template-tagInputField']}
+                        placeholder="Textbox for admin to list employee emails with comma as delimiter"
                         />
                                           
                 </div>
@@ -182,7 +224,7 @@ const InviteParticipants = () => {
                     <h4 className={styles['template-block__header']}>Email text to participants</h4> 
                     <textarea
                         className={styles['invite__template-content']}
-                        placeholder="Enter email addresses (comma separated)"
+                        placeholder={explainingTextPlaceholder}
                         value={followTextValue}
                         onChange={(e) => setFollowTextValue(e.target.value)}
                     />
@@ -195,11 +237,11 @@ const InviteParticipants = () => {
                     <select 
                         className={styles.templateSelect} 
                         onChange={handleTemplateSelectChange} 
-                        disabled={emailTemplates.length === 0} 
+                        disabled={emailTemplates.length === 1} 
                         value={selectedTemplateOption.templateName} 
                         name="existingPrograms" id="existingPrograms"
                     >
-                    {emailTemplates.length === 0 && <option value="" disabled>No templates</option>}
+                    {emailTemplates.length === 1 && <option value="" disabled>No templates</option>}
                         {emailTemplates.map(template => {
                             if (template.templateName === '') return <option 
                             key={'select_template_input'} 

@@ -33,6 +33,8 @@ const Matchmaking = () => {
         }
     }
 
+    console.log(12312312123);
+
     return (
         <>
         <h2 className={styles['header-text']}>Matchmaking</h2>
